@@ -2,8 +2,26 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="main-container">
+    @foreach (var board in Boards)
+    {
+        <div class="board-wrapper">
+            <div class="board">
+                <div class="board-header">@board.Title</div>
+                <ul class="board-content">
+                    @foreach (var task in board.Tasks)
+                    {
+                        <li class="draggable-element" draggable="true">
+                            <div class="inner task">
+                                @task.Text
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <div class="board-footer"><span class="icon">+</span> Add a card</div>
+            </div>
+        </div>
+    }
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+</div>
